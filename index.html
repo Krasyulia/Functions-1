@@ -1,0 +1,29 @@
+<script>
+    "use strict";
+    function getArrayParams(arr) {
+        let min = Infinity;
+        let max = -Infinity;
+        let sum = 0;
+
+        for(let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+
+            sum = sum + arr[i];
+        }
+
+        return {
+            min, 
+            max,
+            avg: parseFloat((sum / arr.length).toFixed(2)),
+        }
+    }
+
+    console.log(getArrayParams([-99, 99, 10]), { min: -99, max: 99, avg: 3.33 })
+    console.log(getArrayParams([1, 2, 3, -100, 10]), { min: -100, max: 10, avg: -16.80 })
+</script>
